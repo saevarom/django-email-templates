@@ -6,7 +6,7 @@ Installation
 
 Installing::
 
-    pip install django-email-templates
+    easy_install django-email-templates
 
 Example usage
 ==============
