@@ -1,0 +1,16 @@
+<html>
+<body>
+    <h1>Contact us</h1>
+    {% if success > 0 %}
+    <p>Thank you for contacting us.</p>
+    {% endif %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <p>
+            <input type="submit" value="Submit" />
+        </p>
+    </form>
+</body>
+</html>
+

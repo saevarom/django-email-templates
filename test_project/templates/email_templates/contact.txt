@@ -1,0 +1,6 @@
+Someone submitted the contact form:
+
+Name: {{ name }}
+E-mail: {{ email }}
+Message: 
+{{ message }}

@@ -54,25 +54,26 @@ def send_templated_mail(subject, from_email, to, template_name,
     text_content = plaintext.render(d) if plaintext else None
     html_content = html.render(d) if html else None
 
-    print text_content
-    print html_content
+    result = 0
 
     if plaintext and html:
         print "plaintext and html"
         msg = EmailMultiAlternatives(subject, text_content, from_email, 
                                      to, connection=connection)
         msg.attach_alternative(html_content, "text/html")
-        msg.send(fail_silently=fail_silently)
+        result = msg.send(fail_silently=fail_silently)
 
     if plaintext and not html:
         print "plaintext and not html"
         msg = EmailMessage(subject, text_content, from_email, to, 
                            connection=connection)
-        msg.send(fail_silently=fail_silently)
+        result = msg.send(fail_silently=fail_silently)
 
     if html and not plaintext:
         print "html and not plaintext"
         msg=EmailMessage(subject, html_content, from_email, to, 
                          connection=connection)
         msg.content_subtype = 'html'
-        msg.send(fail_silently)
+        result = msg.send(fail_silently)
+    
+    return result
