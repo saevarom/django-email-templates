@@ -8,6 +8,10 @@ Installing::
 
     easy_install django-email-templates
 
+or::
+
+    pip install django-email-templates
+
 Example usage
 ==============
 
